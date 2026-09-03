@@ -6,7 +6,7 @@ print("=" * 45)
 
 def validate_email():
 
-    email = input("\n📩 Enter your email: ")
+    email = input("\n📩 Enter your email: ").strip().lower()
 
     is_valid = True
 
@@ -24,6 +24,17 @@ def validate_email():
             is_valid = False
             break
 
+    # Empty check
+    if not email:
+        print("\n⚠️ Error: Email cannot be empty.")
+        is_valid = False
+    
+    # Length check
+    if len(email) > 50:
+        print("\n⚠️ Error: Email is too long.")
+        is_valid = False
+
+    
     # Check @ symbol
     if email.count("@") != 1:
         print("\n⚠️ Error: Email must contain exactly one '@' symbol.")
@@ -32,8 +43,12 @@ def validate_email():
     else:
         username, domain = email.split("@")
 
-        if len(username) <= 1:
-            print("\n⚠️ Error: Username is too short.")
+        if len(username) <= 3:
+            print("\n⚠️ Error: Username must be at least 3 characters.")
+            is_valid = False
+
+        if username.startswith('.') or username.endswith('.'):
+            print("\n⚠️ Error: Username cannot start or end with a dot.")
             is_valid = False
 
         if "." not in domain:
@@ -65,3 +80,12 @@ def validate_email():
 
 
 validate_email()
+
+# Multiple email testing option
+if __name__ == "__main__":
+    while True:
+        validate_email()
+        choice = input("\n🔄 Check another email? (yes/no): ").lower()
+        if choice != 'yes':
+            print("\n👋 Thank you for using Email Validator!")
+            break
