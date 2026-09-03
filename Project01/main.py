@@ -10,7 +10,7 @@ def validate_email():
 
     is_valid = True
 
-    # Check spaces and invalid symbols
+    # Check space and invalid symbols
     for ch in email:
         if ch in " !#$%^&*()=+{}[]|\\:;\"'<>?,/" or ch.isspace():
             print("\n⚠️ Error: Extra character or space found.")

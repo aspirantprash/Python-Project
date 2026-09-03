@@ -4,7 +4,7 @@
 
 This project checks whether an email address is valid or not.
 
-The user enters an email address, and the program checks whether it is valid based on specific validation rules.
+The user enter an email address, and the program checks whether it is valid based on specific validation rules.
 
 If the email is valid, the program displays a congratulations message.
 
